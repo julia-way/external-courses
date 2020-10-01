@@ -1,10 +1,14 @@
-let a;
-let getTypeElement = function (a) {
-    if (typeof a === 'string') {
-        return typeof a;
-    } if (typeof a === 'number' && isNaN(a) === false) {
-        return typeof a;
-    }
+const getTypeElement = function (a) {
+    const stringOrNumber = typeof a;
+
+    if (stringOrNumber === 'string') {
+        return stringOrNumber;
+    };
+
+    if (stringOrNumber === 'number' && isNaN(a) === false) {
+        return stringOrNumber;
+    };
+
     return undefined;
 };
 module.exports = getTypeElement;
