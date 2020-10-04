@@ -1,13 +1,12 @@
 const getMaxElement = function(array) {
-    let maxValue = array[0];
+    let max = array[0];
     for (let i = 1; i < array.length; i++) {
-
-        if ((array[i]) > maxValue) {
-            maxValue = array[i]; 
+        if ((array[i]) > max) {
+            max = array[i]; 
         }
     }
 
-    return maxValue;
+    return max;
 };
 
 module.exports = getMaxElement;
