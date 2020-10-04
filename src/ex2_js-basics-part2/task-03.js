@@ -3,13 +3,15 @@ const getAmmountOfNumbers = function (array) {
     let sumOfOdd = 0;
     let sumOfZero = 0;
 
-    for (let i = 0; i < array.length; i++) {
-        if (typeof array[i] === 'number' && array[i] === 0) {
-            sumOfZero++;
-        } else if (typeof array[i] === 'number' && array[i] % 2 === 0) {
-            sumOfEven++;
-        } else if (typeof array[i] === 'number') {
-            sumOfOdd++;
+    if (typeof array[i] === 'number') {
+        for (let i = 0; i < array.length; i++) {
+            if (array[i] === 0) {
+                sumOfZero++;
+            } else if (array[i] % 2 === 0) {
+                sumOfEven++;
+            } else {
+                sumOfOdd++;
+            }
         }
     }
 
