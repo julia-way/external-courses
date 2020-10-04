@@ -3,8 +3,8 @@ const getAmmountOfNumbers = function (array) {
     let sumOfOdd = 0;
     let sumOfZero = 0;
 
-    if (typeof array[i] === 'number') {
-        for (let i = 0; i < array.length; i++) {
+    for (let i = 0; i < array.length; i++) {
+        if (typeof array[i] === 'number') {
             if (array[i] === 0) {
                 sumOfZero++;
             } else if (array[i] % 2 === 0) {
