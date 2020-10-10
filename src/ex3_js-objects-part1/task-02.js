@@ -1,10 +1,9 @@
 const returnData = function (obj) {
-    if (typeof obj !== 'object') {
-        return ('В качестве аргумента функции должен выступать объект');
-    }
-    console.log(Object.entries(obj));
+    for (const key in obj) {
+        console.log(key, ':', obj[key]);
+    };
 
-    return obj;
+    return;
 };
 
 module.exports = returnData;

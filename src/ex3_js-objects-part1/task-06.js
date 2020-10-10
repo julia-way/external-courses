@@ -3,9 +3,9 @@ const getDeepCopy = function (obj) {
 
     if (typeof obj === 'object') {
         if (obj instanceof Array) {
-            let length = obj.length;
-            let newObj = new Array(length);
-            for (let i = 0; i < length; i++) {
+            let newObj = [];
+
+            for (let i = 0; i < obj.length; i++) {
                 newObj[i] = (getDeepCopy(obj[i]));
             }
 
@@ -15,9 +15,10 @@ const getDeepCopy = function (obj) {
         if (obj.prototype) {
             newObj.prototype = obj.prototype;
         }
+
         for (let key in obj) {
             if (obj.hasOwnProperty(key)) {
-            newObj[key] = getDeepCopy(obj[key]);
+                newObj[key] = getDeepCopy(obj[key]);
             }
         }
 
