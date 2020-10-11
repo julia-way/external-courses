@@ -1,5 +1,4 @@
-const getCopyOfObject = function (obj) {
-    
+const getCopyOfObject = function (obj) { 
     return Object.assign({}, obj);
 };
 

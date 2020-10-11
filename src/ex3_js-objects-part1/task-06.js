@@ -6,7 +6,7 @@ const getDeepCopy = function (obj) {
             let newObj = [];
 
             for (let i = 0; i < obj.length; i++) {
-                newObj[i] = (getDeepCopy(obj[i]));
+                newObj[i] = getDeepCopy(obj[i]);
             }
 
             return newObj;

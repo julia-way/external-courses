@@ -8,6 +8,7 @@ const checkString = function (string, obj) {
     }
     
     modifiedObj[string] = 'new';
+    
     return modifiedObj;
 };
 
