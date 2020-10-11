@@ -1,5 +1,5 @@
 const checkString = function (string, obj) {
-    modifiedObj = obj;
+    const modifiedObj = obj;
 
     for (const key in obj) {
         if (key === string) {

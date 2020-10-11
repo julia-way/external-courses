@@ -13,6 +13,7 @@ const getDeepCopy = function (obj) {
         }
 
         if (obj.prototype) {
+            
             newObj.prototype = obj.prototype;
         }
 
