@@ -1,7 +1,5 @@
 const deleteWhitespaces = function (string) {
-    const newString = string.trim();
-
-    return newString;
+    return string.trimLeft().trimRight();  
 };
 
 module.exports = deleteWhitespaces;

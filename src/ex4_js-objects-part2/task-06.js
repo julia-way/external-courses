@@ -1,7 +1,5 @@
 const getCapitalLetters = function (string) {
-    const newString = string.split(/\s+/).map(word => word[0].toUpperCase() + word.substring(1)).join(' ');
-
-    return newString;
+    return string.split(' ').map(word => word[0].toUpperCase() + word.substring(1)).join(' ');
 };
 
 module.exports = getCapitalLetters;

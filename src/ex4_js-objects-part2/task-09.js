@@ -1,9 +1,10 @@
 const gettheOtherOrderOfWords = function (string1, string2, position) {
     const arr = string1.split(' ');
-    const modificatedString = arr.splice(position + 1, 0, string2);
-    const toMakeString = arr.join(' ');
+    const firstPartOfString = arr.slice(0, position + 1).join(' ');
+    const secondPartOfString = arr.slice(position + 1).join(' ');
+    const finalString = firstPartOfString + ' ' + string2 + ' ' + secondPartOfString;
 
-    return toMakeString;
+    return finalString;
 };
 
 module.exports = gettheOtherOrderOfWords;

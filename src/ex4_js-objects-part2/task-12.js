@@ -1,7 +1,5 @@
 const getSum = function (number1, number2) {
-    const sumValue = +(number1 + number2).toFixed(3);
-
-    return sumValue;
+    return +(number1 + number2).toFixed(3);
 };
 
 module.exports = getSum;

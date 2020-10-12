@@ -1,7 +1,5 @@
 const randomNumberFrom0To100 = function () {
-    const randomNumber = Math.floor(Math.random() * 100);
-
-    return randomNumber;
+    return Math.floor(Math.random() * 101);
 };
 
 module.exports = randomNumberFrom0To100;
