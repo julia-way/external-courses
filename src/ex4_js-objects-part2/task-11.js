@@ -4,7 +4,7 @@ const countTheSameElements = function (string) {
 
     for (i in arr) {
         if (result[arr[i]] !== undefined) {
-            (result[arr[i]]++);
+            result[arr[i]]++;
         } else {
             (result[arr[i]] = 1);
         }

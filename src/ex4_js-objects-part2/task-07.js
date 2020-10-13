@@ -2,8 +2,7 @@ const getModificationOfString = function (string, number) {
     let newStringWithPoints;
 
     if (string.length > number) {
-        const newString = string.substring(0, number - 1);
-        newStringWithPoints = newString + '…';
+        newStringWithPoints = string.substring(0, number - 1) + '…';
     }
 
     return newStringWithPoints;
