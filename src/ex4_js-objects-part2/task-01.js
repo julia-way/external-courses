@@ -1,12 +1,12 @@
 const findPropertyInPrototype = function (key, obj) {
     const objPrototype = Object.getPrototypeOf(obj);
-    let keyOfPrototype;
+    let keyPrototype;
 
     if (objPrototype.hasOwnProperty(key)) {
-        keyOfPrototype = objPrototype[key];
+        keyPrototype = objPrototype[key];
     }
 
-    return keyOfPrototype;
+    return keyPrototype;
 };
 
 module.exports = findPropertyInPrototype;
