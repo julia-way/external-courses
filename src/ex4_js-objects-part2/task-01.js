@@ -1,11 +1,10 @@
-const findPropertyInPrototype = function (keyofObj, obj) {
+const findPropertyInPrototype = function (key, obj) {
+    const objPrototype = Object.getPrototypeOf(obj);
     let keyOfPrototype;
 
-    for (const key in obj) {
-        if (key === keyofObj) {
-            keyOfPrototype = Object.getPrototypeOf(obj)[key];
-        }
-    }  
+    if (objPrototype.hasOwnProperty(key)) {
+        keyOfPrototype = objPrototype[key];
+    }
 
     return keyOfPrototype;
 };
