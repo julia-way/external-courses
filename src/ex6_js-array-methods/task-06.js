@@ -7,9 +7,7 @@ const analogueOfReduce = function (array, callback, initialValue) {
         for (let i = 1; i < array.length; i++) {
             previousValue = callback(previousValue, array[i], i, array);
         }
-    }
-
-    if (initialValue !== undefined) {
+    } else {
         previousValue = initialValue;
 
         for (let i = 0; i < array.length; i++) {
