@@ -1,18 +1,17 @@
 const analogueOfReduce = function (array, callback, initialValue) {
     let previousValue;
+    let x;
 
     if (initialValue === undefined) {
         previousValue = array[0];
-
-        for (let i = 1; i < array.length; i++) {
-            previousValue = callback(previousValue, array[i], i, array);
-        }
+        x = 1;
     } else {
         previousValue = initialValue;
+        x = 0;
+    }
 
-        for (let i = 0; i < array.length; i++) {
-            previousValue = callback(previousValue, array[i], i, array);
-        }
+    for (let i = x; i < array.length; i++) {
+        previousValue = callback(previousValue, array[i], i, array);
     }
 
     return previousValue;

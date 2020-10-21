@@ -7,11 +7,11 @@ const analogueOfSlice = function (array, begin, end) {
         newBegin = 0;
     }
 
-    if (end === undefined) {
+    if (end === undefined || end > array.length) {
         newEnd = array.length;
     }
 
-    if (begin < 0) {
+    if (begin < 0 || begin < (-(array.length))) {
         newBegin = array.length + begin;
     }
 
