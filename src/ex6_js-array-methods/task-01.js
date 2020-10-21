@@ -1,5 +1,5 @@
 const analogueOfSlice = function (array, begin, end) {
-    const newArray = [];
+    const cutArray = [];
     let newBegin = begin;
     let newEnd = end;
 
@@ -20,10 +20,10 @@ const analogueOfSlice = function (array, begin, end) {
     }
 
     for (let i = newBegin; i < newEnd; i++) {
-        newArray.push(array[i]);
+        cutArray.push(array[i]);
     }
 
-    return newArray;
+    return cutArray;
 };
 
 module.exports = analogueOfSlice;
