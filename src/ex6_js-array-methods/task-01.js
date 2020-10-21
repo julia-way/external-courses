@@ -3,7 +3,7 @@ const analogueOfSlice = function (array, begin, end) {
     let newBegin = begin;
     let newEnd = end;
 
-    if (begin === undefined) {
+    if (begin === undefined || begin < (-(array.length))) {
         newBegin = 0;
     }
 
@@ -11,7 +11,7 @@ const analogueOfSlice = function (array, begin, end) {
         newEnd = array.length;
     }
 
-    if (begin < 0 || begin < (-(array.length))) {
+    if (begin < 0 && begin >= (-(array.length))) {
         newBegin = array.length + begin;
     }
 
