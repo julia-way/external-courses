@@ -1,0 +1,10 @@
+h2 {
+    color: #000080;
+    font-size: 200%;
+    font-family: Arial, Verdana, sans-serif;
+    text-align: center;
+  } 
+
+  body {
+	background-image: url('desert.png');
+}
