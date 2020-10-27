@@ -1,0 +1,51 @@
+.number1 {
+    background: rgb(102, 205, 170);
+    width: 98%;
+    height: 400px;
+    position: relative;
+}
+
+.number1::after,
+.number1::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+.number1::after {
+    background: rgba(102, 205, 170, 0.7);
+    top: 5px;
+    left: 5px;
+}
+
+.number1::before {
+    background: rgba(102, 205, 170, 0.4);
+    top: 10px;
+    left: 10px;
+}
+
+.number2 {
+    background: rgb(255, 215, 0);
+    width: 1495px;
+    height: 400px;
+    box-shadow: 5px 5px 0 rgba(255, 215, 0, 0.7), 10px 10px 0 rgba(255, 215, 0, 0.4);
+    transform: translate(0, 100px);
+}
+
+.number3 {
+    background: rgb(70, 30, 180);
+    width: 98%;
+    height: 400px;
+    box-shadow: 5px 5px 0 rgba(70, 30, 180, 0.7);
+    transform: translate(0, 200px);
+}
+
+.number4 {
+    background: rgba(70, 30, 180, 0.7);
+    width: 98%;
+    height: 400px;
+    transform: translate(0, -200px);
+    box-shadow: 10px 10px 0 rgba(70, 30, 180, 0.4);
+}
