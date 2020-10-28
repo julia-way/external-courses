@@ -1,0 +1,25 @@
+@import url('task-03-2.css');
+
+table {
+	font-family: sans-serif;
+}
+
+thead {
+	background: #e3eaf3;
+	color: #978697;
+	font-size: 13px;
+	line-height: 2;
+	text-transform: uppercase;
+}
+
+tbody {	
+	color: #8b637b;
+}
+
+td {
+	padding: 15px;
+}
+
+tr:hover {	
+     background: silver;
+}
