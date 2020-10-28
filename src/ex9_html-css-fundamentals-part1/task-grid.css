@@ -1,0 +1,38 @@
+body {
+	font-size: 24px;
+}
+
+section {
+	display: grid;
+	grid-template-columns: 3fr 1fr;
+	grid-template-areas:
+	"header header"
+	"main sidebar"
+	"footer footer";
+	grid-gap: 10px;
+}
+
+header {
+	grid-area: header;
+	background-color: #638fe0;
+}
+
+article {
+	grid-area: main;
+}
+
+aside {
+	grid-area: sidebar;
+	background-color: #a4c0f3;
+}
+
+footer {
+	grid-area: footer;
+	background-color: #638fe0;
+	height: 10%;
+}
+
+header, footer, aside, article {
+text-align: center;
+padding: 20px;
+}
