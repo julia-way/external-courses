@@ -1,0 +1,175 @@
+body {
+	background: white;
+	min-width: 100vw;
+	min-height: 100vh;
+}
+
+header {
+	height: 302px;
+	position: relative;
+}
+
+.main {
+	height: 885px;
+	background-image: url("images for desktop/backPictupe.png");
+}
+
+.arts {
+padding-left: 617px;
+padding-top: 265px;
+font-family: sans-serif;
+	font-size: 50px;
+	font-weight: bold;
+	color: #FFFFFF;	
+}
+
+.business {
+padding-left: 724px;
+	margin: 0;
+font-family: sans-serif;
+	font-size: 40px;
+	font-weight: normal;
+	color: #FFFFFF;		
+}
+
+.and {
+	width: 100px;
+	height: 110px;
+	padding-left: 617px;
+}
+	
+.articles {
+	height: 512px;
+display: flex;
+align-items: left;
+justify-content: top;
+}
+
+.article1 {
+	display: block;
+}
+
+.article2 {
+	display: block;
+} 
+
+#heading {
+	margin: 30px 0;
+	padding-left: 20px;
+}
+
+h1 {	
+	color: #679DCC;
+	font: 40px, sans-serif;
+	margin: 0;
+	padding-bottom: 10px;
+	position: relative;
+	padding-left: 21.8%;
+	transform: translate (150px, 0px);
+	background: url("images for desktop/logoBack.png") no-repeat;
+	background-size: 20%;
+}
+
+nav {
+	position: absolute;
+	min-width: 100vw;
+	bottom: 0px;
+	border-top: 1px solid #ECEEF4;
+	display: flex;
+	align-items: center;
+}
+
+.menu {
+		padding-left: 436px;
+}
+
+nav p {
+	display: inline-block;	
+	padding: 15px 15px;
+	margin: 0;	
+	border-right: 1px solid #ECEEF4;
+}
+
+.lastElement {
+	border-right: none;
+}
+
+
+nav p:hover {	
+     background: silver;
+}
+
+nav a {
+	width: 100%;
+	height: 40px;
+	font-size: 13px;
+	font-weight: bold;
+    font-family: sans-serif;
+	color: #6D6E71;
+	text-decoration: none;
+}
+
+i:hover {	
+     background: silver;
+}
+
+form {
+	margin: 0;
+	padding-left: 90px;
+}
+
+input {
+border: 1px solid white;
+}
+
+.lampimage {
+float: left;
+	width: 113px;
+	height: 106px;
+	padding-left: 21.8%;	
+}
+
+.tree {
+float: left;
+	width: 113px;
+	height: 106px;
+	padding-left: 53.2%;
+}
+
+h2 {
+	text-align: right;
+	font-family: sans-serif;
+	font-weight: bold;
+	font-size: 26px;
+	text-align: left;
+	color: #6D6E71;
+}
+
+p {
+	font-family: sans-serif;
+	font-size: 16px;
+	color: #6D6E71;
+	text-align: center;
+	padding: 10px;
+}
+
+.pictures {
+	display: flex;
+	width: 322px;
+	height: 241px;
+	top: 850px;
+	left: 824px;
+}
+
+ .articles {
+	display: flex;
+}
+
+@media (max-width:992px){
+	.container {
+		max-width: 992px;
+	}
+	.pictures {
+		display: none;
+	}
+}
