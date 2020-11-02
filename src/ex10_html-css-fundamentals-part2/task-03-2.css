@@ -1,12 +1,11 @@
-.even1, .even2, .even3, .even4 {
+.even:nth-child(2n) {
 	background: #e8edf4;
 }
 
-.odd1, .odd2, .odd3, .odd4 {
+.odd:nth-child(2n+1) {
 background: #f2f6fa;
 }
 
-#name1, #name2, #name3, #name4,
-#name5, #name6, #name7, #name8 {
+.name:first-child {
 	text-transform: capitalize;
 }

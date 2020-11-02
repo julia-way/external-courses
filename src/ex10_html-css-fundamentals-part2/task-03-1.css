@@ -4,7 +4,7 @@ table {
 	font-family: sans-serif;
 }
 
-thead {
+#head {
 	background: #e3eaf3;
 	color: #978697;
 	font-size: 13px;
@@ -20,6 +20,6 @@ td {
 	padding: 15px;
 }
 
-tr:hover {	
-     background: silver;
+#head:hover, .even:hover, .odd:hover {	
+    background: silver;
 }
