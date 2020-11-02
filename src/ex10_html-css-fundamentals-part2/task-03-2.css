@@ -1,8 +1,8 @@
-.even:nth-child(2n) {
+.even:nth-child(even) {
 	background: #e8edf4;
 }
 
-.odd:nth-child(2n+1) {
+.odd:nth-child(odd) {
 background: #f2f6fa;
 }
 

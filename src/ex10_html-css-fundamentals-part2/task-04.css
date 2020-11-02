@@ -1,175 +1,395 @@
 body {
-	background: white;
-	min-width: 100vw;
-	min-height: 100vh;
+  background: white;
+  width: 100%;
+  height: 100%;
+  font-family: "Open Sans";
 }
 
-header {
-	height: 302px;
-	position: relative;
+.container {
+  width: 80%;
+  margin: auto;
 }
 
-.main {
-	height: 885px;
-	background-image: url("images for desktop/backPictupe.png");
-}
-
-.arts {
-padding-left: 617px;
-padding-top: 265px;
-font-family: sans-serif;
-	font-size: 50px;
-	font-weight: bold;
-	color: #FFFFFF;	
-}
-
-.business {
-padding-left: 724px;
-	margin: 0;
-font-family: sans-serif;
-	font-size: 40px;
-	font-weight: normal;
-	color: #FFFFFF;		
-}
-
-.and {
-	width: 100px;
-	height: 110px;
-	padding-left: 617px;
-}
-	
-.articles {
-	height: 512px;
-display: flex;
-align-items: left;
-justify-content: top;
-}
-
-.article1 {
-	display: block;
-}
-
-.article2 {
-	display: block;
-} 
-
-#heading {
-	margin: 30px 0;
-	padding-left: 20px;
-}
-
-h1 {	
-	color: #679DCC;
-	font: 40px, sans-serif;
-	margin: 0;
-	padding-bottom: 10px;
-	position: relative;
-	padding-left: 21.8%;
-	transform: translate (150px, 0px);
-	background: url("images for desktop/logoBack.png") no-repeat;
-	background-size: 20%;
-}
-
-nav {
-	position: absolute;
-	min-width: 100vw;
-	bottom: 0px;
-	border-top: 1px solid #ECEEF4;
-	display: flex;
-	align-items: center;
-}
-
-.menu {
-		padding-left: 436px;
-}
-
-nav p {
-	display: inline-block;	
-	padding: 15px 15px;
-	margin: 0;	
-	border-right: 1px solid #ECEEF4;
-}
-
-.lastElement {
-	border-right: none;
-}
-
-
-nav p:hover {	
-     background: silver;
-}
-
-nav a {
+.header-container {
 	width: 100%;
-	height: 40px;
-	font-size: 13px;
-	font-weight: bold;
-    font-family: sans-serif;
-	color: #6D6E71;
-	text-decoration: none;
+	height: 302px;
 }
 
-i:hover {	
-     background: silver;
+.heading {
+  display: flex;
+  width: 40%;
+  font-size: 48px;
+  color: #136bd3;
+background: url("logoBack.png") no-repeat;
+padding-left: 150px;
+padding-top: 20px;
 }
 
-form {
-	margin: 0;
-	padding-left: 90px;
+.a-container {
+  width: 100%;
+  height: 885px;
+  background-image: url("backPictupe.png");
+  background-size: cover;
 }
+
+.menu p a {
+  color: #555758;
+  font-size: 12px;
+  font-weight: 600;
+  text-decoration: none;
+  position: relative;
+}
+
+.menu p a:after {
+  content: '';
+  top: 12px;
+  border: 1px solid #ECEEF4; 
+  opacity: 0;
+  position: absolute;
+  width: 0; 
+  height: 0; 
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent; 
+  border-bottom: 5px solid blue;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 0;
+}
+
+.menu p a:hover:after {
+opacity: 1;
+}	
 
 input {
 border: 1px solid white;
 }
 
+form {
+	padding-left: 500px;
+	display: flex;
+}
+
+.company-about {
+  display: flex;
+  height: 216px;
+}
+	
+.touch {
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+}
+
+i:hover {
+  color: #136bd3;
+}
+
+.touch .marker {
+  border-left: 1px solid #a5a5a5;
+  border-right: 1px solid #a5a5a5;
+}
+
+.phone,
+.place,
+.envelope {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 60px
+} 
+
+.touch .place {
+  border-left: 1px solid #BCBEC3;
+  border-right: 1px solid #BCBEC3;
+}
+
+.touch .place i {
+  color: #1FAAE2;
+}
+  
+.hint {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 200px;
+  height: 50px;
+  color: #6D6E71;
+  border: 2px solid #D4D4D5;
+  top: 20px;
+  border-radius: 5px;
+  position: absolute;
+  opacity: 1;
+}
+
+.hint:before {
+  content: ''; 
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #D4D4D5;
+  border-width: 1px 0 0 1px;
+  transform: rotate(-135deg);
+  top: 42px;
+  background-color: white;
+}
+
+nav {
+  display: flex;
+  width: 100%;
+  height: 86px;
+  align-items: center;
+  border-top: 1px solid #ECEEF4; 
+}
+
+.menu {
+  justify-content: space-between; 
+  display: flex;
+flex-wrap: nowrap;   
+}
+
+.search {
+  width: 20%;
+  margin-left: auto;
+}
+
+.presentation {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 600px;
+}
+
+.presentation h1 {
+  white-space: nowrap;   
+  font-size: 59px;
+  color: white;
+  position: relative;
+  padding-right: 500px;
+  margin-left: 617px;
+  margin-top: 550px;
+  font-family: sans-serif;
+  font-weight: bold;
+  z-index: 0;
+}
+
+.presentation h1:after {
+  content: "make your business much better";
+  font-size: 45px;
+  color: white;
+  position: absolute;
+  margin: 0 auto;
+  left: 0;
+  right: 0;
+  bottom: -65px;
+  margin-left: 100px;
+}
+
+.presentation h1:before {
+  content: "&";
+  font-size: 120px;
+  color: #BBEDFF;
+  position: absolute;
+  left: 0;
+  right: 0;
+  z-index: -1;
+}
+
+.slideshow {
+  display: flex;
+  justify-content: center;
+  margin-top: 120px;
+}
+
+.slideshow img {
+  width: 300px;
+  cursor: pointer;
+}
+
+.picture i {
+  margin-right: 10px;
+}
+
+nav p {
+  display: inline-block;	
+  margin: 0;	
+  border-right: 1px solid #ECEEF4;
+}
+
+.lastItem {
+  border-right: none;
+}
+
+.item:hover, .lastItem:hover {
+  color: blue;
+}
+
+nav a {
+  width: 100%;
+  height: 40px;
+  font-size: 13px;
+  font-weight: bold;
+  font-family: sans-serif;
+  color: #6D6E71;
+  text-decoration: none;
+}
+
 .lampimage {
-float: left;
-	width: 113px;
-	height: 106px;
-	padding-left: 21.8%;	
+  float: left;
+  width: 113px;
+  height: 106px;	
 }
 
 .tree {
-float: left;
-	width: 113px;
-	height: 106px;
-	padding-left: 53.2%;
+  float: left;
+  width: 113px;
+  height: 106px;
 }
 
 h2 {
-	text-align: right;
-	font-family: sans-serif;
-	font-weight: bold;
-	font-size: 26px;
-	text-align: left;
-	color: #6D6E71;
+  text-align: right;
+  font-family: sans-serif;
+  font-weight: bold;
+  font-size: 26px;
+  text-align: left;
+  color: #6D6E71;
 }
 
 p {
-	font-family: sans-serif;
-	font-size: 16px;
-	color: #6D6E71;
-	text-align: center;
-	padding: 10px;
+  font-family: sans-serif;
+  font-size: 16px;
+  color: #6D6E71;
+  text-align: center;
+  padding: 10px;
 }
 
-.pictures {
-	display: flex;
-	width: 322px;
-	height: 241px;
-	top: 850px;
-	left: 824px;
+.slideshow {
+  display: flex;
+  justify-content: center;
+  padding-top: 100px;
+  padding-left: 300px;
 }
 
- .articles {
-	display: flex;
+.slideshow img {
+  width: 300px;
+  height: 241px;
 }
 
-@media (max-width:992px){
-	.container {
-		max-width: 992px;
-	}
-	.pictures {
-		display: none;
-	}
+.slideshow .like1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 300px;
+  height: 60px;
+  margin-top: -63px;
+  color: #fff;
+  position: absolute;
+  background-color: #89C94F;
+}
+
+.slideshow .like2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 300px;
+  height:60px;
+  margin-top: -63px;
+  color: #fff;
+  position: absolute;
+  background-color: #FEEB75;
+}
+
+.slideshow .next {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100px;
+  height: 241px;
+  color: #D4D4D4;
+  position: absolute;
+  background-color: #F4F4F4;
+}
+
+.reasons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 60px;
+}
+
+.about, .why {
+  display: flex;
+  max-width: 660px;
+}
+
+.description p {
+  text-align: justify;
+}
+
+.nav-tablet, .logo-tablet {
+  display: none;
+}
+		
+@media screen and (max-width: 1369px) {
+.container {
+  width: 100%;
+}
+	
+.header-container {
+  width: 100%;
+  height: 200px;
+}
+
+.nav-tablet {
+  max-width: 90px;
+  width: 100%;
+  display: block;
+  margin-top: -200px;
+  border: 1px solid transparent;
+  background: white;
+}
+
+.line {
+  width: 100%;
+  height: 8px;
+  background-color: blue;
+  margin-bottom: 10px;
+}
+
+.menu {
+  display: none;
+}
+	
+.slideshow {
+  display: none;
+}
+	
+.reasons {
+  align-items: center;
+  flex-direction: column;
+}
+	
+.touch {
+  display: none;
+}
+
+form {
+  margin-left: auto;
+  margin-top: -200px;
+  padding-right: 0px; 
+}
+  
+.heading {
+  width: 100%;
+  margin-top: 100px;
+  justify-content: center;
+  background-image: url("logoBack1.png");
+  background-position: center;
+  background-size: auto;
+  padding-right: 135px;
+}
+  
+.presentation h1 {
+  vertical-align: center;
+  margin-bottom: 400px;
+  }
 }
