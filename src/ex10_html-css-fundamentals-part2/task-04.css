@@ -389,8 +389,8 @@ width: 800px;
 form {
   padding-right: 150px; 
   transform: translateY(-100px);
-  margin-top: -200px;
   margin-left: auto;
+  margin-top: -200px;
 }
 
 .heading {
