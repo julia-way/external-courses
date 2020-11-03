@@ -1,11 +1,16 @@
 @import url('task-03-2.css');
 
-table {
-	font-family: sans-serif;
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 #head {
-	background: #e3eaf3;
+	font-family: sans-serif;
+}
+
+thead {
 	color: #978697;
 	font-size: 13px;
 	line-height: 2;
@@ -20,6 +25,6 @@ td {
 	padding: 15px;
 }
 
-#head:hover, .even:hover, .odd:hover {	
+tbody tr:hover {	
     background: silver;
 }
