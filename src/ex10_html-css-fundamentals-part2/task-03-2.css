@@ -1,0 +1,15 @@
+tr:nth-child(2n) {
+	background: #e8edf4;
+}
+
+tr:nth-child(2n+1) {
+background: #f2f6fa;
+}
+
+th {
+background: #e3eaf3;
+}
+
+tr td:first-child {
+	text-transform: capitalize;
+}

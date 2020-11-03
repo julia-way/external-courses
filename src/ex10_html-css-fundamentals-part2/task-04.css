@@ -1,0 +1,412 @@
+body {
+  background: white;
+  width: 100%;
+  height: 100%;
+  font-family: "Open Sans";
+}
+
+.container {
+  max-width: 1370px;
+  margin: 0 auto;
+}
+
+.header-container {
+	width: 100%;
+	height: 302px;
+}
+
+.heading {
+  display: flex;
+  width: 40%;
+  font-size: 48px;
+  color: #136bd3;
+  background: url("./imagesForDesktop/logoBack.png") no-repeat;
+  background-position: left 100px center;
+  padding-left: 250px;
+  padding-top: 80px;
+}
+
+.a-container {
+  width: 100%;
+  height: 885px;
+  background-image: url("./imagesForDesktop/backPictupe.png");
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.menu a {
+  color: #555758;
+  font-size: 12px;
+  font-weight: 600;
+  text-decoration: none;
+  position: relative;
+  display: inline-block;
+  line-height: 83px;
+}
+
+nav a:after {
+  content: '';
+  top: 12px;
+  border: 1px solid #ECEEF4; 
+  opacity: 0;
+  position: absolute;
+  border-left: 7px solid transparent;
+  border-right: 7px solid transparent; 
+  border-bottom: 9px solid #3687C4;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 0;
+}
+
+nav a:hover:after {
+  opacity: 1;
+}	
+
+input {
+  border: 1px solid white;
+}
+
+form {
+	padding-left: 450px;
+  display: flex;
+}
+
+.company-about {
+  display: flex;
+  height: 216px;
+}
+
+.touch {
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+  padding-right: 200px;
+}
+
+i:hover {
+  color: #136bd3;
+}
+
+.touch .marker {
+  border-left: 1px solid #a5a5a5;
+  border-right: 1px solid #a5a5a5;
+}
+
+.phone,
+.place,
+.envelope {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 60px
+} 
+
+.touch .place {
+  border-left: 1px solid #BCBEC3;
+  border-right: 1px solid #BCBEC3;
+}
+
+.touch .place i {
+  color: #1FAAE2;
+}
+
+.hint {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 200px;
+  height: 50px;
+  color: #6D6E71;
+  border: 2px solid #D4D4D5;
+  top: 20px;
+  border-radius: 5px;
+  position: absolute;
+  opacity: 1;
+}
+
+.hint:before {
+  content: ''; 
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #D4D4D5;
+  border-width: 2px 0 0 2px;
+  transform: rotate(-135deg);
+  top: 40px;
+  background-color: white;
+}
+
+nav {
+  display: flex;
+  width: 100%;
+  height: 86px;
+  align-items: center;
+  border-top: 1px solid #ECEEF4; 
+  padding-left: 100px;
+}
+
+.menu {
+  justify-content: space-between; 
+  display: flex;
+  flex-wrap: nowrap;   
+}
+
+.search {
+  width: 20%;
+  margin-left: auto;
+}
+
+.presentation {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 600px;
+}
+
+.presentation h1 {
+  white-space: nowrap;   
+  font-size: 59px;
+  color: white;
+  position: relative;
+  padding-right: 500px;
+  margin-left: 550px;
+  margin-top: 410px;
+  font-family: sans-serif;
+  font-weight: bold;
+  z-index: 0;
+}
+
+.presentation h1:after {
+  content: "make your business much better";
+  font-size: 45px;
+  font-weight: normal;
+  color: white;
+  position: absolute;
+  margin: 0 auto;
+  left: 0;
+  right: 0;
+  bottom: -65px;
+  margin-left: 100px;
+}
+
+.presentation h1:before {
+  content: "&";
+  font-size: 120px;
+  color: #BBEDFF;
+  position: absolute;
+  left: 0;
+  right: 0;
+  z-index: -1;
+}
+
+.slideshow {
+  display: flex;
+  justify-content: center;
+  margin-top: 120px;
+}
+
+.slideshow img {
+  width: 300px;
+  cursor: pointer;
+}
+
+.picture i {
+  margin-right: 10px;
+}
+
+.lastItem {
+  border-right: none;
+}
+
+.item:hover, .lastItem:hover {
+  color: blue;
+}
+
+nav a {
+  display: inline-block;	
+  border-right: 1px solid #ECEEF4;
+  width: 100%;
+  padding: 0 10px;
+  font-size: 13px;
+  font-weight: bold;
+  font-family: sans-serif;
+  color: #6D6E71;
+  text-decoration: none;
+  white-space: nowrap;  
+}
+
+.lampimage {
+  float: left;
+  width: 113px;
+  height: 106px;	
+}
+
+.tree {
+  float: left;
+  width: 113px;
+  height: 106px;
+}
+
+h2 {
+  text-align: right;
+  font-family: sans-serif;
+  font-weight: bold;
+  font-size: 26px;
+  text-align: left;
+  color: #6D6E71;
+}
+
+p {
+  font-family: sans-serif;
+  font-size: 16px;
+  color: #6D6E71;
+  text-align: center;
+  padding: 10px;
+}
+
+.slideshow {
+  display: flex;
+  justify-content: center;
+  padding-left: 320px;
+}
+
+.slideshow img {
+  width: 300px;
+  height: 241px;
+}
+
+.slideshow .like1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 300px;
+  height: 60px;
+  margin-top: -63px;
+  color: #fff;
+  position: absolute;
+  background-color: #89C94F;
+}
+
+.slideshow .like2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 300px;
+  height:60px;
+  margin-top: -63px;
+  color: #fff;
+  position: absolute;
+  background-color: #FEEB75;
+}
+
+.slideshow .next {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100px;
+  height: 241px;
+  color: #D4D4D4;
+  position: absolute;
+  background-color: #F4F4F4;
+}
+
+.reasons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 60px;
+  padding-left: 100px;
+  padding-right: 100px;
+}
+
+.about, .why {
+  display: flex;
+  max-width: 550px;
+}
+
+.description p {
+  text-align: justify;
+}
+
+.nav-tablet, .logo-tablet {
+  display: none;
+}
+
+@media screen and (max-width: 1024px) {
+.container {
+width: 800px;
+}
+
+.header-container {
+  height: 100px;
+}
+
+.nav-tablet {
+  max-width: 50px;
+  width: 100%;
+  transform: translateY(-200px);
+  display: block;
+  padding-top: 0px;
+  border: 1px solid transparent;
+  padding-left: 30px;
+}
+
+.line {
+  width: 40px;
+  height: 8px;
+  background-color: #3687C4;;
+  margin-bottom: 10px;
+}
+
+.heading {
+  width: 100%;
+}
+
+.menu {
+  display: none;
+}
+
+.slideshow {
+  display: none;
+}
+
+.reasons {
+  align-items: center;
+  flex-direction: column;
+  margin-top: 0px;
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
+.about, .why {
+  max-width: 700px;
+}
+
+.touch {
+  display: none;
+}
+
+form {
+  padding-right: 150px; 
+  transform: translateY(-100px);
+  margin-left: auto;
+  margin-top: -200px;
+}
+
+.heading {
+  width: 100%;
+  margin-top: 100px;
+  justify-content: center;
+  background-image: url("./imagesForDesktop/logoBack1.png");
+  background-position: center;
+  background-size: auto;
+  transform: translateY(-100px);
+  padding-top: 20px;
+  padding-left: 0px;
+}
+
+.presentation h1 {
+  vertical-align: center;
+  margin-bottom: 430px;
+  }
+}

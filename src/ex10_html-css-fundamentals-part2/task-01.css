@@ -1,0 +1,7 @@
+.shape1 {
+	clip-path: circle(30%);
+}
+
+.shape2 {
+	clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+}

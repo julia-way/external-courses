@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>HTML-страница с формой</title>
+    <link rel="stylesheet" href="task-02.css" type="text/css">
+</head>
+
+<body>
+    <form action="http://httpbin.org/get" method="get">
+        <fieldset>
+            <legend>Personal data</legend>
+            <label>Surname <input type="text" name="surname"></label><br>
+            <label>First Name <input type="text" name="firstname"></label><br>
+            <label>Middle name <input type="text" name="middlename"></label><br>
+            <label>You are <input type="radio" name="male/female"> male </label><label><input type="radio"
+                    name="male/female"> female</label><br>
+            <label>Age <input type="number" min="18" max="101" step="1" class="age" name="age"></label><br>
+            <label>Country of Residence
+                <select class="country" name="countryOfResidence">
+                    <option value="" hidden>Country</option>
+                    <option value="Russia">Russia</option>
+                </select>
+            </label><br>
+            <label>City <input type="checkbox" name="Ryazan"> Ryazan </label><label><input type="checkbox"
+                    name="Moscow"> Moscow</label><br>
+            <label>Photography <input type="file" name="file"></label>
+            <hr>
+            <label>Title <select class="list" name="list" multiple>
+                    <option class="technologies" value="Technologies">Technologies</option>
+                    <option class="webMaster" value="Web Master">Web Master</option>
+                    <option class="databaseAdministrator" value="Database Administrator">Database Administrator</option>
+                    <option class="computerAidedDesign" value="Computer-aided design">Computer-aided design</option>
+                    <option class="finance" value="Finance">Finance</option>
+                    <option class="economicPlanning" value="Economic Planning">Economic Planning</option>
+                    <option class="managementAccounting" value="Management accounting">Management accounting</option>
+                    <option class="budgetingAndPlanning" value="Budgeting and planning">Budgeting and planning</option>
+                </select>
+            </label><br>
+            <label>Salary <input type="range" min="0" max="300000" name="salary"></label><br>
+            <textarea class="information" name="informationAboutUser">Tell us about yourself...</textarea>
+        </fieldset>
+    </form>
+    <form action="http://httpbin.org/post" method="post">
+        <fieldset>
+            <legend>Contact Information</legend>
+            <label>Site <input type="url" name="website"></label><br>
+            <label>Email <input type="email" name="email-address"></label><br>
+            <label>Phone <input type="tel" name="phone-number"></label>
+        </fieldset>
+        <div class="end">
+            <label>Password <input type="password" name="password" required></label><br>
+            <input type="submit" name="submit">
+            <input type="reset" name="reset">
+        </div>
+    </form>
+</body>
+
+</html>

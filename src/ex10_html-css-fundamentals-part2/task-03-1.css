@@ -1,0 +1,30 @@
+@import url('task-03-2.css');
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#head {
+	font-family: sans-serif;
+}
+
+thead {
+	color: #978697;
+	font-size: 13px;
+	line-height: 2;
+	text-transform: uppercase;
+}
+
+tbody {	
+	color: #8b637b;
+}
+
+td {
+	padding: 15px;
+}
+
+tbody tr:hover {	
+    background: silver;
+}
