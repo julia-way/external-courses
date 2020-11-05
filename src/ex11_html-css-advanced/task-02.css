@@ -1,0 +1,30 @@
+div {
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+input {
+  border: 1px solid silver;
+  padding: 1rem;
+  font-size: 1.6rem;
+  outline: none;
+}
+    
+label {
+  padding-left: 1rem;
+  color: silver; 
+  transform: translateY(2.5rem);
+  transform-origin: left top;
+  cursor: text;
+  transition: 0.2s;
+}   
+    
+input:not(:placeholder-shown) + label {
+  color: blue;
+  font-weight: bold;
+  transform: translateY(1.3rem) scale(0.8);
+}
+
+input:not(:focus) + label {
+  color: silver;
+}
