@@ -3,26 +3,33 @@ div {
   flex-direction: column-reverse;
 }
 
+.textspace {
+  position: relative;
+}
+
 input {
   border: 1px solid silver;
   padding: 1rem;
   font-size: 1.6rem;
   outline: none;
+  font-size: 1rem;
 }
-    
+
 label {
+  position: absolute;
+  display: none;
   padding-left: 1rem;
   color: silver; 
-  transform: translateY(2.5rem);
   transform-origin: left top;
   cursor: text;
   transition: 0.2s;
-}   
-    
+}  
+
 input:not(:placeholder-shown) + label {
+  display: inline;
   color: blue;
   font-weight: bold;
-  transform: translateY(1.3rem) scale(0.8);
+  transform: translateY(-1.7rem) scale(0.8);
 }
 
 input:not(:focus) + label {
