@@ -10,26 +10,31 @@ div {
 input {
   border: 1px solid silver;
   padding: 1rem;
-  font-size: 1.6rem;
+  font-size: 1.2rem;
   outline: none;
-  font-size: 1rem;
 }
 
 label {
   position: absolute;
-  display: none;
+  visibility: hidden;
+  font-size: 0.8rem;
   padding-left: 1rem;
   color: silver; 
   transform-origin: left top;
   cursor: text;
-  transition: 0.2s;
+  padding-bottom: 1.5rem;
 }  
 
+input:placeholder-shown + label {
+  visibility: hidden;
+}
+
 input:not(:placeholder-shown) + label {
-  display: inline;
+  visibility: visible;
   color: blue;
   font-weight: bold;
-  transform: translateY(-1.7rem) scale(0.8);
+  transform: translateY(-0.7rem);
+  transition: 0.7s;
 }
 
 input:not(:focus) + label {
