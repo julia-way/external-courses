@@ -1,0 +1,42 @@
+div {
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+.textspace {
+  position: relative;
+}
+
+input {
+  border: 1px solid silver;
+  padding: 1rem;
+  font-size: 1.2rem;
+  outline: none;
+}
+
+label {
+  position: absolute;
+  visibility: hidden;
+  font-size: 0.8rem;
+  padding-left: 1rem;
+  color: silver; 
+  transform-origin: left top;
+  cursor: text;
+  padding-bottom: 1.5rem;
+}  
+
+input:placeholder-shown + label {
+  visibility: hidden;
+}
+
+input:not(:placeholder-shown) + label {
+  visibility: visible;
+  color: blue;
+  font-weight: bold;
+  transform: translateY(-0.7rem);
+  transition: 0.7s;
+}
+
+input:not(:focus) + label {
+  color: silver;
+}
