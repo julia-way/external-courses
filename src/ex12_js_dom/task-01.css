@@ -1,0 +1,79 @@
+.body {
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(45deg,#e4e5d8, #69ecba);
+}
+
+.slider-container {
+  position: relative;
+  max-width: 70%;
+  height: 100vh;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.slider-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;  
+}
+
+.photo.visible {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 1;
+  animation: rotation 0.75s linear;
+}
+
+@keyframes rotation {
+  25% {
+  transform:rotate(90deg) scale(0.25);
+}
+ 50% {
+  transform:rotate(180deg) scale(0.5);
+ }
+ 75% {
+  transform:rotate(270deg) scale(0.75);
+  }
+ 100% {
+  transform:rotate(360deg) scale(1);
+   }
+}
+
+.photo {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+}
+
+.toPreviousPhoto {
+  position: absolute;
+  display: flex;
+  left: -120px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.toNextPhoto {
+  position: absolute;
+  display: flex;
+  right: -120px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.toPreviousPhoto:hover,
+.toNextPhoto:hover {
+  border: 2px solid black;
+}
+  
+#arrow {
+    color: #803131;
+    font-size: 200px;
+}
