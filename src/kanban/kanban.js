@@ -1,36 +1,46 @@
-const link = document.querySelector(".userMenu");
+const link = document.querySelector('#user-menu');
 
-const elementUL = document.createElement("ul");
-elementUL.classList.add("menuItems");
+const elementUl = document.createElement('ul');
+elementUl.classList.add('menu-items');
 
-const item1 = document.createElement("li");
-item1.innerHTML = "My account";
-elementUL.appendChild(item1);
-item1.classList.add("string");
+const item1 = document.createElement('li');
+item1.innerHTML = 'My account';
+elementUl.appendChild(item1);
+item1.classList.add('string');
 
-const line1 = document.createElement("hr");
-elementUL.appendChild(line1);
+const line1 = document.createElement('hr');
+elementUl.appendChild(line1);
 
-const item2 = document.createElement("li");
-item2.innerHTML = "My tasks";
-elementUL.appendChild(item2);
-item2.classList.add("string");
+const item2 = document.createElement('li');
+item2.innerHTML = 'My tasks';
+elementUl.appendChild(item2);
+item2.classList.add('string');
 
-const line2 = document.createElement("hr");
-elementUL.appendChild(line2);
+const line2 = document.createElement('hr');
+elementUl.appendChild(line2);
 
-const item3 = document.createElement("li");
-item3.innerHTML = "Log out";
-elementUL.appendChild(item3);
-item3.classList.add("string");
+const item3 = document.createElement('li');
+item3.innerHTML = 'Log out';
+elementUl.appendChild(item3);
+item3.classList.add('string');
 
-link.addEventListener("click", showAndHide);
-function showAndHide() {
-    link.classList.toggle("show");
+function showMenu () {
+    link.classList.add('show');
+    link.appendChild(elementUl);
+}
 
-    if (link.classList.contains("show")) {
-        link.appendChild(elementUL);
-    } else {
-        elementUL.remove();
-    }
-};
+function hideMenu () {
+    link.classList.remove('show');
+    elementUl.remove();
+}
+
+document.addEventListener('click', (event) => {
+const isClickInsideLink = link.contains(event.target);
+const isClickInsideMenu = elementUl.contains(event.target);
+
+if (isClickInsideLink || isClickInsideMenu) {
+    showMenu();
+} else {
+    hideMenu();
+}
+});
