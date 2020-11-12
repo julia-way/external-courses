@@ -24,6 +24,8 @@ item3.innerHTML = 'Log out';
 elementUl.appendChild(item3);
 item3.classList.add('string');
 
+let count = 1;
+
 function showMenu () {
     link.classList.add('show');
     link.appendChild(elementUl);
@@ -38,9 +40,16 @@ document.addEventListener('click', (event) => {
 const isClickInsideLink = link.contains(event.target);
 const isClickInsideMenu = elementUl.contains(event.target);
 
-if (isClickInsideLink || isClickInsideMenu) {
+if (isClickInsideLink && count % 2 !== 0) {
     showMenu();
+    count++;
+} else if (isClickInsideMenu) {
+    showMenu();
+} else if (isClickInsideLink && count % 2 === 0) {
+    hideMenu();
+    count++;
 } else {
     hideMenu();
+    count++;
 }
 });
