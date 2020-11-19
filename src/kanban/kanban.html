@@ -4,6 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Kanban</title>
     <link rel="stylesheet" href="kanban.css" type="text/css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
@@ -14,15 +15,15 @@
         <div class="header-container">
             <div class="header-content">
                 <div class="unite">
-                    <div class="circleLine">
+                    <div class="circle-line">
                         <div class="circle"></div>
                         <div class="line"></div>
                     </div>
-                    <div class="circleLine">
+                    <div class="circle-line">
                         <div class="circle"></div>
                         <div class="line"></div>
                     </div>
-                    <div class="circleLine">
+                    <div class="circle-line">
                         <div class="circle"></div>
                         <div class="line"></div>
                     </div>
@@ -33,33 +34,90 @@
                         <div class="plus"><i class="fa fa-plus-circle" aria-hidden="true"></i></div>
                         <a href="#" class="create">Create new list</a>
                     </div>
-                    <ul>
-                        <li class="userMenu"><a href="#" class="linkForMenu">
-                                <img class="user" src="./user.jpg" alt="user">
-                                <div class="down"><i class="fa fa-angle-down" aria-hidden="true"></i></div>
-                            </a>
-                        </li>
-                    </ul>
+                    <div id="user-menu"><a href="#" class="link-for-menu">
+                            <img class="user" src="user.jpg" alt="user">
+                            <div class="down"><i class="fa fa-angle-down" aria-hidden="true"></i></div>
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
     </header>
 
-    <main>
-        <div class="main-container"></div>
-    </main>
-
-    <footer>
-        <div class="footer-container">
-            <div class="footer-content">
-                <p class="activeTasks">Active tasks: &lt;N&gt;</p>
-                <p class="finishedTasks">Finished tasks: &lt;M&gt;</p>
-                <p class="by">Kanban board by &lt;NAME&gt;,&lt;YEAR&gt;</p>
+    <div class="main-container">
+        <div class="root">
+            <div class="board">
+                <div class="tasks-block" data-tasks-block="backlog">
+                    <header class="tasks-block__header">
+                        <h3 class="tasks-block__title">Backlog</h3>
+                        <div class="unite-of-points">
+                            <div class="point"></div>
+                            <div class="point"></div>
+                            <div class="point"></div>
+                        </div>
+                    </header>
+                    <main class="tasks-block__tasks-container"></main>
+                    <footer class="tasks-block__footer">
+                        <button class="tasks-block__add-task-button"><span>+</span> Add card</button>
+                    </footer>
+                </div>
+                <div class="tasks-block" data-tasks-block="ready">
+                    <header class="tasks-block__header">
+                        <h3 class="tasks-block__title">Ready</h3>
+                        <div class="unite-of-points">
+                            <div class="point"></div>
+                            <div class="point"></div>
+                            <div class="point"></div>
+                        </div>
+                    </header>
+                    <main class="tasks-block__tasks-container"></main>
+                    <footer class="tasks-block__footer">
+                        <button class="tasks-block__add-task-button"><span>+</span> Add card</button>
+                    </footer>
+                </div>
+                <div class="tasks-block" data-tasks-block="inProgress">
+                    <header class="tasks-block__header">
+                        <h3 class="tasks-block__title">In Progress</h3>
+                        <div class="unite-of-points">
+                            <div class="point"></div>
+                            <div class="point"></div>
+                            <div class="point"></div>
+                        </div>
+                    </header>
+                    <main class="tasks-block__tasks-container"></main>
+                    <footer class="tasks-block__footer">
+                        <button class="tasks-block__add-task-button"><span>+</span> Add card</button>
+                    </footer>
+                </div>
+                <div class="tasks-block" data-tasks-block="finished">
+                    <header class="tasks-block__header">
+                        <h3 class="tasks-block__title">Finished</h3>
+                        <div class="unite-of-points">
+                            <div class="point"></div>
+                            <div class="point"></div>
+                            <div class="point"></div>
+                        </div>
+                    </header>
+                    <main class="tasks-block__tasks-container"></main>
+                    <footer class="tasks-block__footer">
+                        <button class="tasks-block__add-task-button"><span>+</span> Add card</button>
+                    </footer>
+                </div>
             </div>
         </div>
+    </div>
+
+    <div class="footer-container">
+        <div class="footer-content">
+            <p class="active-tasks">Active tasks: &lt;N&gt;</p>
+            <p class="finished-tasks">Finished tasks: &lt;M&gt;</p>
+            <p class="by">Kanban board by &lt;NAME&gt;,&lt;YEAR&gt;</p>
         </div>
-    </footer>
+    </div>
+    </div>
+    <script src="mock.js"></script>
     <script src="kanban.js"></script>
+    <script src="kanban1.js"></script>
 </body>
 
 </html>
