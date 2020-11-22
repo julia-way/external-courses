@@ -9,6 +9,7 @@ elementUl.appendChild(item1);
 item1.classList.add('string');
 
 const line1 = document.createElement('hr');
+line1.classList.add('horizontal-line');
 elementUl.appendChild(line1);
 
 const item2 = document.createElement('li');
@@ -17,6 +18,7 @@ elementUl.appendChild(item2);
 item2.classList.add('string');
 
 const line2 = document.createElement('hr');
+line2.classList.add('horizontal-line');
 elementUl.appendChild(line2);
 
 const item3 = document.createElement('li');
