@@ -1,26 +1,26 @@
 function Calculator() {
     this.result = 0;
 
-    this.add = (number1 = 0) => {
-        this.result = this.result + number1;
+    this.add = (number = 0) => {
+        this.result = this.result + number;
 
         return this;
     };
 
-    this.subtract = (number1 = 0) => {
-        this.result = this.result - number1;
+    this.subtract = (number = 0) => {
+        this.result = this.result - number;
 
         return this;
     };
 
-    this.divide = (number1 = 1) => {
-        this.result = this.result / number1;
+    this.divide = (number = 1) => {
+        this.result = this.result / number;
 
         return this;
     };
 
-    this.multiply = (number1 = 1) => {
-        this.result = this.result * number1;
+    this.multiply = (number = 1) => {
+        this.result = this.result * number;
 
         return this;
     };

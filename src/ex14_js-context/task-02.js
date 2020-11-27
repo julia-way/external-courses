@@ -3,18 +3,14 @@ function Hangman(word) {
     this.finalWordArray = word.split('');
     this.errorsLeft = 6;
     this.wrongSymbols = [];
-    this.fillArray = [];
-
-    for (let i = 0; i < this.finalWordArray.length; i++) {
-        this.fillArray[i] = "_";
-    }
+    this.fillArray = this.finalWordArray.map(() => "_");
 
     this.guess = (letter) => {
-        for (let j = 0; j < this.finalWordArray.length; j++) {
-            if (this.finalWordArray[j] === letter) {
-                this.fillArray[j] = letter;
+        this.finalWordArray.map((el, index) => {
+            if (el === letter) {
+                this.fillArray[index] = letter;
             }
-        }
+        })
 
         if (!this.fillArray.includes(letter)) {
             this.errorsLeft--;
@@ -57,11 +53,7 @@ function Hangman(word) {
         this.finalWordArray = newWord.split('');
         this.errorsLeft = 6;
         this.wrongSymbols = [];
-        this.fillArray = [];
-
-        for (let i = 0; i < this.finalWordArray.length; i++) {
-            this.fillArray[i] = "_";
-        }
+        this.fillArray = this.finalWordArray.map(() => "_");
 
         return this;
     };
