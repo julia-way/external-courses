@@ -53,7 +53,7 @@ class Room {
         return totalPower;
     }
 
-    sortByName(value) {
+    filterByName(value) {
         return this.appliances.filter(elem => elem.name === value);
     }
 }

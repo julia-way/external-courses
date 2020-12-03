@@ -34,10 +34,10 @@ function Present(...dessert) {
     this.weight = function() {
         return this.dessert.reduce((weight, elem) => weight + elem.weight, 0);
     }
-    this.sortByBrand = function(brand) {
-        return this.dessert.filter(elem => elem.brand === brand);
+    this.sortByWeight = function() {
+        return this.dessert.sort((a, b) => a.weight - b.weight);
     }
-    this.sortByName = function(name) {
+    this.filterByName = function(name) {
         return this.dessert.filter(elem => elem.name === name);
       }
 }
