@@ -1,5 +1,5 @@
 {
-  "name": "ex17_js-components",
+  "name": "webpurple-external-courses",
   "version": "1.0.0",
   "description": "WebPurple JavaScript course template",
   "scripts": {
@@ -12,7 +12,7 @@
     "url": "git+https://github.com/webpurple/external-courses.git"
   },
   "author": "Igor Fedyukin <Igor_Fedyukin@epam.com>",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/webpurple/external-courses/issues"
   },
@@ -22,9 +22,7 @@
     "eslint": "5.4.0",
     "html-validator": "3.1.2",
     "jest": "24.9.0",
-    "pre-commit": "1.2.2",
-    "webpack": "^5.10.1",
-    "webpack-cli": "^4.2.0"
+    "pre-commit": "1.2.2"
   },
   "pre-commit": [
     "test",
@@ -39,12 +37,5 @@
     "moduleNameMapper": {
       "~utils": "<rootDir>/test-utils.js"
     }
-  },
-  "main": "tasks-management.js",
-  "dependencies": {},
-  "keywords": [
-    "js",
-    "js-components",
-    "webpack"
-  ]
+  }
 }
