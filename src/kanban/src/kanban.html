@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kanban</title>
+    <link rel="stylesheet" href="kanban.css" type="text/css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+</head>
+
+<body>
+    <header>
+        <div class="header-container">
+            <div class="header-content">
+                <div class="unite">
+                    <div class="circleLine">
+                        <div class="circle"></div>
+                        <div class="line"></div>
+                    </div>
+                    <div class="circleLine">
+                        <div class="circle"></div>
+                        <div class="line"></div>
+                    </div>
+                    <div class="circleLine">
+                        <div class="circle"></div>
+                        <div class="line"></div>
+                    </div>
+                </div>
+                <p class="kanban">Awesome Kanban Board</p>
+                <div class="profile">
+                    <div class="rectangle">
+                        <div class="plus"><i class="fa fa-plus-circle" aria-hidden="true"></i></div>
+                        <a href="#" class="create">Create new list</a>
+                    </div>
+                    <ul>
+                        <li class="userMenu"><a href="#" class="linkForMenu">
+                                <img class="user" src="./user.jpg" alt="user">
+                                <div class="down"><i class="fa fa-angle-down" aria-hidden="true"></i></div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="main-container"></div>
+    </main>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-content">
+                <p class="activeTasks">Active tasks: &lt;N&gt;</p>
+                <p class="finishedTasks">Finished tasks: &lt;M&gt;</p>
+                <p class="by">Kanban board by &lt;NAME&gt;,&lt;YEAR&gt;</p>
+            </div>
+        </div>
+        </div>
+    </footer>
+    <script src="kanban.js"></script>
+</body>
+
+</html>
