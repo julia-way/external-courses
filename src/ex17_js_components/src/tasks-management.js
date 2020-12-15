@@ -1,9 +1,9 @@
 import "./kanban.css";
-import "./leftLogo.js"; 
-import "./profile.js"; 
-import "./taskBlocks.js";
-import "./footer.js"; 
-import "./kanban.js"; 
+import "./leftLogo-component/leftLogo.js"; 
+import "./profile-component/profile.js"; 
+import "./taskBlocks-component/taskBlocks.js";
+import "./footer-component/footer.js"; 
+import "./dropdown-menu.js"; 
 import { initialData } from "./mock.js"
 
 const tasks = initialData;
