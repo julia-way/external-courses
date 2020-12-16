@@ -10,17 +10,25 @@
 Структура файлов выглядит следующим образом:
 dist
 src
-  footer.js
+  footer-component
+    footer.css
+    footer.js
+  leftLogo-component
+    leftLogo.css
+    leftLogo.js
+  profile-component
+    profile.css
+    profile.js
+    user.jpg
+  taskBlocks-component
+    taskBlocks.css
+    taskBlocks.js
+    three-dots.png
+    three-dots.svg
+  dropdown-menu.js
   kanban.css
-  kanban.js
-  leftLogo.js
   mock.js
-  profile.js
-  taskBlocks.js
-  tasks-management.js
-  three-dots.png
-  three-dots.svg
-  user.jpg
+  tasks-management.js  
 .babelrc
 index.html
 package-lock.json
