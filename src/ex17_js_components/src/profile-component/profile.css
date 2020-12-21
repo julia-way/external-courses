@@ -1,6 +1,8 @@
 .profile {
     display: flex;
     align-items: center;
+    position: absolute;
+    right: 20px;
   }
 
   .rectangle {
@@ -13,6 +15,10 @@
     justify-content: center;
     margin-right: 50px;
     margin-left: 450px;
+  }
+
+  #user-menu {
+    position: relative;
   }
 
   .plus {

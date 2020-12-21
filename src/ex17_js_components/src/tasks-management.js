@@ -4,29 +4,26 @@ import "./profile-component/profile.js";
 import "./taskBlocks-component/taskBlocks.js";
 import "./footer-component/footer.js"; 
 import "./dropdown-menu.js"; 
-import { initialData } from "./mock.js"
-
+import "./blocks-management.js"; 
+import { initialData } from "./mock.js";
+import { blocks, addButtons, taskBlocksOrder } from "./blocks-management.js";
 const tasks = initialData;
+/* const eventListeners = Object.keys().reduce((result, key) => {
+return {...result, [key]: [eventForFirstButton(key), eventForOtherButtons(key)]}
+}, {}); */
+
+
+if (!localStorage.getItem("tasks") || !localStorage.getItem("id-count")) {
+  localStorage.setItem("id-count", "15");
+  localStorage.setItem("tasks", JSON.stringify(tasks));
+}
+
 let idCount = +localStorage.getItem("id-count");
+/* JSON.parse(localStorage.getItem("tasks")); */
 
-const blocks = {
-  backlog: document.querySelector('[data-tasks-block=backlog] .tasks-block__tasks-container'),
-  ready: document.querySelector('[data-tasks-block=ready] .tasks-block__tasks-container'),
-  inProgress: document.querySelector('[data-tasks-block=inProgress] .tasks-block__tasks-container'),
-  finished: document.querySelector('[data-tasks-block=finished] .tasks-block__tasks-container'),
-};
 
-const addButtons = {
-  backlog: document.querySelector('[data-tasks-block=backlog] > .tasks-block__footer > .tasks-block__add-task-button'),
-  ready: document.querySelector('[data-tasks-block=ready] > .tasks-block__footer > .tasks-block__add-task-button'),
-  inProgress: document.querySelector('[data-tasks-block=inProgress] > .tasks-block__footer > .tasks-block__add-task-button'),
-  finished: document.querySelector('[data-tasks-block=finished] > .tasks-block__footer > .tasks-block__add-task-button'),
-};
-
-const taskBlocksOrder = ['backlog', 'ready', 'inProgress', 'finished'];
-
-const showTasks = () => {
-  localStorage.setItem("id-count", `${idCount}`);
+export const showTasks = () => {
+  localStorage.setItem("id-count", `${idCount}`); 
   localStorage.setItem("tasks", JSON.stringify(tasks));
 
   Object.keys(tasks).forEach(key => {
@@ -35,7 +32,7 @@ const showTasks = () => {
       const taskElem = document.createElement('p');
       taskElem.innerText = task.title;
       taskElem.className = 'task';
-      blocks[key].appendChild(taskElem);
+      blocks[key].appendChild(taskElem)
     });
   });
 };
@@ -57,8 +54,16 @@ const pushButtons = () => {
   });
 };
 
-const createTaskForBacklog = (key) => {
-  addButtons[key].addEventListener('click', () => {
+export const countTasks = () => {
+  const amountOfTasksBacklog = Array.from(document.querySelectorAll('[data-tasks-block="backlog"] p')).length;
+  const amountOfTasksFinished = Array.from(document.querySelectorAll('[data-tasks-block="finished"] p')).length;
+  const activeTasks = document.querySelector('.active-tasks');
+  const finishedTasks = document.querySelector('.finished-tasks');
+  activeTasks.innerHTML = `Backlog: ${amountOfTasksBacklog}`; 
+  finishedTasks.innerHTML = `Finished: ${amountOfTasksFinished}`;
+};
+
+export const eventForFirstButton = (key) => {
     const input = document.createElement('input');
     input.classList.add('input-for-task');
     addButtons[key].parentElement.insertBefore(input, addButtons[key]);
@@ -69,48 +74,59 @@ const createTaskForBacklog = (key) => {
       idCount++;
 
       tasks[key].push({ id: idCount, title: value });
+      localStorage.setItem("tasks", JSON.stringify(tasks));
       input.remove();
       showTasks();
       pushButtons();
+      countTasks();
     });
-  });
+  }; 
+
+  export const eventForOtherButtons = (key) => () => {
+    const tasksDropdown = document.createElement('ul');
+    tasksDropdown.classList.add('task-dropdown');
+    const blockOrder = taskBlocksOrder.findIndex(blockKey => key === blockKey);
+    const prevBlockName = taskBlocksOrder[blockOrder - 1];
+
+    tasksDropdown.addEventListener('click', ({ target }) => {
+      const taskIndex = tasks[prevBlockName].findIndex(({ id }) => {
+        return Number(id) === Number(target.value);
+      });
+
+      tasks[key] = [...tasks[key], ...tasks[prevBlockName].splice(taskIndex, 1)];
+      tasksDropdown.remove();
+      addButtons[key].disabled = false;
+      showTasks();
+      pushButtons();
+      countTasks();
+    });
+
+    tasks[prevBlockName].forEach(({ title, id }) => {
+      const dropdownItem = document.createElement('li');
+
+      dropdownItem.className = 'dropdown-items';
+      dropdownItem.innerText = title;
+      dropdownItem.value = id;
+      tasksDropdown.appendChild(dropdownItem);
+    });
+
+    addButtons[key].disabled = true;
+    addButtons[key].parentElement.insertBefore(tasksDropdown, addButtons[key]);
+  };
+
+export const createTaskForFirstBlock = (key) => {
+  addButtons[key].addEventListener('click', () => {
+    addButtons[key].addEventListener('click', eventForFirstButton(key));
+  }); 
 };
 
-const createTask = () => {
-  taskBlocksOrder.forEach(key => {
-    if (key === 'backlog') {
-      createTaskForBacklog(key);
+export const createTask = () => {
+  taskBlocksOrder.forEach((key, index) => {
+    if (index === 0) {
+      createTaskForFirstBlock(key);
+      countTasks(); 
     } else {
-      addButtons[key].addEventListener('click', () => {
-        const tasksDropdown = document.createElement('ul');
-        tasksDropdown.classList.add('task-dropdown');
-        const blockOrder = taskBlocksOrder.findIndex(blockKey => key === blockKey);
-        const prevBlockName = taskBlocksOrder[blockOrder - 1];
-
-        tasksDropdown.addEventListener('click', ({ target }) => {
-          const taskIndex = tasks[prevBlockName].findIndex(({ id }) => {
-            return Number(id) === Number(target.value);
-          });
-
-          tasks[key] = [...tasks[key], ...tasks[prevBlockName].splice(taskIndex, 1)];
-          tasksDropdown.remove();
-          addButtons[key].disabled = false;
-          showTasks();
-          pushButtons();
-        });
-
-        tasks[prevBlockName].forEach(({ title, id }) => {
-          const dropdownItem = document.createElement('li');
-
-          dropdownItem.className = 'dropdown-items';
-          dropdownItem.innerText = title;
-          dropdownItem.value = id;
-          tasksDropdown.appendChild(dropdownItem);
-        });
-
-        addButtons[key].disabled = true;
-        addButtons[key].parentElement.insertBefore(tasksDropdown, addButtons[key]);
-      });
+      addButtons[key].addEventListener('click', eventForOtherButtons(key)); 
     }
   });
 };
@@ -118,8 +134,3 @@ const createTask = () => {
 showTasks();
 pushButtons();
 createTask();
-
-if (!localStorage.getItem("tasks")) {
-  localStorage.setItem("id-count", "15");
-  localStorage.setItem("tasks", JSON.stringify(tasks))
-}
