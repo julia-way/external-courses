@@ -3,7 +3,7 @@ import './footer-component/footer.js';
 import './tasks-management.js';
 import { countTasks, createTask, showTasks, eventForFirstButton, eventForOtherButtons } from './tasks-management.js';
 import { initialData } from './mock.js';
-import { transform } from '@babel/core';
+
 const linkCreate = document.querySelector('.rectangle');
 const board = document.querySelector('.board');
 const linkDots = Array.from(document.querySelectorAll('.points'));
@@ -82,33 +82,25 @@ const createNewBlock = () => {
         nameOfBlock.innerHTML = inputNameOfBlock.value;
         createHeaderOfBlock.insertBefore(nameOfBlock, linkDotsNew);
         inputNameOfBlock.remove();
-        
-      /*  for (key in addButtons) { 
-            if (key !== nameOfBlock.innerHTML) {
-               key.removeEventListener('click', eventForFirstButton(key));
-               } else {
-               key.removeEventListener('click', eventForOtherButtons(key));}
-               
-           }  */
-        /* Object.values(addButtons).forEach(element => {
-            element.removeEventListener('click', eventForFirstButton);
-            element.removeEventListener('click', eventForOtherButtons);
-           }) */
 
-         /*  for (key in addButtons) {
-               
-               key.removeEventListener('click', eventForFirstButton);
-               key.removeEventListener ('click', eventForOtherButtons);
-           } */
         blocks[nameOfBlock.innerHTML] = document.querySelector('[data-tasks-block='+nameOfBlock.innerHTML+'] .tasks-block__tasks-container');
         addButtons[nameOfBlock.innerHTML] = document.querySelector('[data-tasks-block='+nameOfBlock.innerHTML+'] .tasks-block__add-task-button');
         taskBlocksOrder.unshift(nameOfBlock.innerHTML);
         initialData[nameOfBlock.innerHTML] = [];
-      
-       createTask(); 
 
         localStorage.setItem('tasks', JSON.stringify(initialData));
         showTasks();
+
+        taskBlocksOrder.forEach((value, i) => {
+          if (i === 0) {
+            addButtons[value].addEventListener('click', eventForFirstButton);
+          }
+    
+          if (i === 1) {
+            addButtons[value].removeEventListener('click', eventForFirstButton);
+            addButtons[value].addEventListener('click', eventForOtherButtons(value));
+          }
+        });
         
         /* showTasks(); */
     };
@@ -120,7 +112,7 @@ const createNewBlock = () => {
         } else {
             board.removeChild(createBlock);
         }
-    }); 
+    });
 };
 
 linkCreate.addEventListener('click', (event) => {    

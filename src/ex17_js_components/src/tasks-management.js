@@ -63,17 +63,17 @@ export const countTasks = () => {
   finishedTasks.innerHTML = `Finished: ${amountOfTasksFinished}`;
 };
 
-export const eventForFirstButton = (key) => {
+export const eventForFirstButton = () => {
     const input = document.createElement('input');
     input.classList.add('input-for-task');
-    addButtons[key].parentElement.insertBefore(input, addButtons[key]);
+    addButtons[taskBlocksOrder[0]].parentElement.insertBefore(input, addButtons[taskBlocksOrder[0]]);
 
     input.addEventListener('blur', ({ target: { value } }) => {
       if (!value) return;
 
       idCount++;
 
-      tasks[key].push({ id: idCount, title: value });
+      tasks[taskBlocksOrder[0]].push({ id: idCount, title: value });
       localStorage.setItem("tasks", JSON.stringify(tasks));
       input.remove();
       showTasks();
@@ -87,6 +87,7 @@ export const eventForFirstButton = (key) => {
     tasksDropdown.classList.add('task-dropdown');
     const blockOrder = taskBlocksOrder.findIndex(blockKey => key === blockKey);
     const prevBlockName = taskBlocksOrder[blockOrder - 1];
+    console.log(prevBlockName);
 
     tasksDropdown.addEventListener('click', ({ target }) => {
       const taskIndex = tasks[prevBlockName].findIndex(({ id }) => {
@@ -114,16 +115,11 @@ export const eventForFirstButton = (key) => {
     addButtons[key].parentElement.insertBefore(tasksDropdown, addButtons[key]);
   };
 
-export const createTaskForFirstBlock = (key) => {
-  addButtons[key].addEventListener('click', () => {
-    addButtons[key].addEventListener('click', eventForFirstButton(key));
-  }); 
-};
 
 export const createTask = () => {
   taskBlocksOrder.forEach((key, index) => {
     if (index === 0) {
-      createTaskForFirstBlock(key);
+      addButtons[key].addEventListener('click', eventForFirstButton); 
       countTasks(); 
     } else {
       addButtons[key].addEventListener('click', eventForOtherButtons(key)); 
