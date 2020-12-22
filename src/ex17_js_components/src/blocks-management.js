@@ -1,27 +1,25 @@
 import './taskBlocks-component/taskBlocks.js';
 import './footer-component/footer.js';
 import './tasks-management.js';
-import { countTasks, createTask, showTasks, eventForFirstButton, eventForOtherButtons } from './tasks-management.js';
+import { countTasks, createTask, showTasks, eventForFirstButton, eventForOtherButtons, idCount } from './tasks-management.js';
 import { initialData } from './mock.js';
-
 const linkCreate = document.querySelector('.rectangle');
 const board = document.querySelector('.board');
 const linkDots = Array.from(document.querySelectorAll('.points'));
-/* const allButtons = Array.from(document.querySelectorAll('.tasks-block__add-task-button')); */
-/* const titleBlocks = Array.from(document.querySelectorAll('.tasks-block__title')); */
+
 export const blocks = {
     backlog: document.querySelector('[data-tasks-block=backlog] .tasks-block__tasks-container'),
     ready: document.querySelector('[data-tasks-block=ready] .tasks-block__tasks-container'),
     inProgress: document.querySelector('[data-tasks-block=inProgress] .tasks-block__tasks-container'),
     finished: document.querySelector('[data-tasks-block=finished] .tasks-block__tasks-container'),
-  };
-console.log(blocks);
+};
+
 export const addButtons = {
     backlog: document.querySelector('[data-tasks-block=backlog] > .tasks-block__footer > .tasks-block__add-task-button'),
     ready: document.querySelector('[data-tasks-block=ready] > .tasks-block__footer > .tasks-block__add-task-button'),
     inProgress: document.querySelector('[data-tasks-block=inProgress] > .tasks-block__footer > .tasks-block__add-task-button'),
     finished: document.querySelector('[data-tasks-block=finished] > .tasks-block__footer > .tasks-block__add-task-button'),
-  };
+};
 
 export const taskBlocksOrder = ['backlog', 'ready', 'inProgress', 'finished'];
   
@@ -57,10 +55,33 @@ const createNewBlock = () => {
             linkDotsNew.classList.remove('show');
             elementUlDelete.remove();
         } else if (isClickInsideMenuDelete && linkDotsNew.classList.contains('show')) {
-            linkDotsNew.parentNode.parentNode.remove();
+            const header = linkDotsNew.parentNode;
+            const titleOfDeletedBlock = header.querySelector('.tasks-block__title').innerHTML;
+            const titleOfDeletedBlockChange = titleOfDeletedBlock.toLowerCase().split(' ').map(word => word[0].toUpperCase() + word.substring(1)).join('');
+            const titleOfDeletedBlockCamelCase = titleOfDeletedBlockChange[0].toLowerCase() + titleOfDeletedBlockChange.substring(1);
+            const amountOfTasksTotal = Array.from(document.querySelectorAll('[data-tasks-block] .tasks-block__tasks-container p')).length;
+            const amountOfTasksInDeletedBlock = Array.from(document.querySelectorAll('[data-tasks-block='+titleOfDeletedBlockCamelCase+'] .tasks-block__tasks-container p')).length;
+            header.parentNode.remove(); 
+            delete blocks[titleOfDeletedBlockCamelCase]; 
+            delete addButtons[titleOfDeletedBlockCamelCase];  
+            taskBlocksOrder.sort((a, b) => {
+                if (a == titleOfDeletedBlockCamelCase) return -1;
+                if (b != titleOfDeletedBlockCamelCase) return 1;
+            });
+            taskBlocksOrder.shift(titleOfDeletedBlockCamelCase);
+            delete initialData[titleOfDeletedBlockCamelCase];
+            taskBlocksOrder.forEach((value, i) => {
+                if (i === 0) {
+                    addButtons[value].removeEventListener('click', eventForOtherButtons(value));
+                    addButtons[value].addEventListener('click', eventForFirstButton);
+                    addButtons[value].disabled = false;
+                } 
+            });
+            idCount = amountOfTasksTotal - amountOfTasksInDeletedBlock;
+            localStorage.setItem('tasks', JSON.stringify(initialData));
+            localStorage.setItem('id-count', `${idCount}`);
             linkDotsNew.classList.remove('show'); 
-            checkPresenceOfBlocks();     
-           /*  localStorage.removeItem("tasks", "backlog"); */ 
+            checkPresenceOfBlocks();      
         }
     });
     
@@ -92,17 +113,15 @@ const createNewBlock = () => {
         showTasks();
 
         taskBlocksOrder.forEach((value, i) => {
-          if (i === 0) {
-            addButtons[value].addEventListener('click', eventForFirstButton);
-          }
+            if (i === 0) {
+                addButtons[value].addEventListener('click', eventForFirstButton);
+            }
     
-          if (i === 1) {
-            addButtons[value].removeEventListener('click', eventForFirstButton);
-            addButtons[value].addEventListener('click', eventForOtherButtons(value));
-          }
+            if (i === 1) {
+                addButtons[value].removeEventListener('click', eventForFirstButton);
+                addButtons[value].addEventListener('click', eventForOtherButtons(value)); 
+            }
         });
-        
-        /* showTasks(); */
     };
     
     inputNameOfBlock.addEventListener('blur', ({ target: { value } }) => {
@@ -118,15 +137,6 @@ const createNewBlock = () => {
 linkCreate.addEventListener('click', (event) => {    
         createNewBlock(); 
 }); 
-
-/* document.addEventListener('click', (event) => {  
-if (linkCreate.contains(event.target)) {
-    createNewBlock();
-}
-  if (addButtons.contains(event.target)) {
-    createTask();
-  }
-}); */
 
 const checkPresenceOfBlocks = () => {
     if (!document.querySelectorAll('.tasks-block').length) {
@@ -159,10 +169,30 @@ linkDots.forEach(item => {
             elementUlDelete.remove();
         } else if (isClickInsideMenuDelete && item.classList.contains('show')) {
             const header = item.parentNode;
-            const titleOfDeletedBlock = header.querySelector('.tasks-block__title');
-            console.log(titleOfDeletedBlock); 
+            const titleOfDeletedBlock = header.querySelector('.tasks-block__title').innerHTML;
+            const titleOfDeletedBlockChange = titleOfDeletedBlock.toLowerCase().split(' ').map(word => word[0].toUpperCase() + word.substring(1)).join('');
+            const titleOfDeletedBlockCamelCase = titleOfDeletedBlockChange[0].toLowerCase() + titleOfDeletedBlockChange.substring(1);
+            const amountOfTasksTotal = Array.from(document.querySelectorAll('[data-tasks-block] .tasks-block__tasks-container p')).length;
+            const amountOfTasksInDeletedBlock = Array.from(document.querySelectorAll('[data-tasks-block='+titleOfDeletedBlockCamelCase+'] .tasks-block__tasks-container p')).length;
             header.parentNode.remove(); 
-            delete blocks[titleOfDeletedBlock];                
+            delete blocks[titleOfDeletedBlockCamelCase]; 
+            delete addButtons[titleOfDeletedBlockCamelCase];
+            taskBlocksOrder.sort((a, b) => {
+                if (a == titleOfDeletedBlockCamelCase) return -1;
+                if (b != titleOfDeletedBlockCamelCase) return 1;
+            });
+            taskBlocksOrder.shift(titleOfDeletedBlockCamelCase);
+            delete initialData[titleOfDeletedBlockCamelCase];
+            taskBlocksOrder.forEach((value, i) => {
+                if (i === 0) {
+                    addButtons[value].removeEventListener('click', eventForOtherButtons(value));
+                    addButtons[value].addEventListener('click', eventForFirstButton);
+                    addButtons[value].disabled = false;
+                } 
+            });
+            idCount = amountOfTasksTotal - amountOfTasksInDeletedBlock;
+            localStorage.setItem('tasks', JSON.stringify(initialData));
+            localStorage.setItem('id-count', `${idCount}`);
             item.classList.remove('show'); 
             checkPresenceOfBlocks();   
             countTasks();
