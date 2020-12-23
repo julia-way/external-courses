@@ -1,10 +1,11 @@
-import dots from './three-dots.svg';
-import dotsPng from './three-dots.png';
 import './taskBlocks.css'
-const imageDots = `
-<object class="points" type="image/svg+xml" data="${dots}" width="32" height="22">
-    <img src="${dotsPng}" width="32" height="22" alt="dots">
-</object>`
+const imageDots = `<button class="points">•••</button>`
+
+const button = `
+<footer class="tasks-block__footer">
+<button class="tasks-block__add-task-button"><span class="add-card">+</span> Add card</button>
+</footer>
+`
 
 class TaskBlocks extends HTMLElement {
     connectedCallback() {
@@ -17,9 +18,7 @@ class TaskBlocks extends HTMLElement {
                   ${imageDots}
               </header>
               <main class="tasks-block__tasks-container"></main>
-              <footer class="tasks-block__footer">
-                  <button class="tasks-block__add-task-button"><span class="add-card">+</span> Add card</button>
-              </footer>
+              ${button}
           </div>
           <div class="tasks-block" data-tasks-block="ready">
               <header class="tasks-block__header">
@@ -27,9 +26,7 @@ class TaskBlocks extends HTMLElement {
                   ${imageDots}
               </header>
               <main class="tasks-block__tasks-container"></main>
-              <footer class="tasks-block__footer">
-                  <button class="tasks-block__add-task-button"><span class="add-card">+</span> Add card</button>
-              </footer>
+              ${button}
           </div>
           <div class="tasks-block" data-tasks-block="inProgress">
               <header class="tasks-block__header">
@@ -37,9 +34,7 @@ class TaskBlocks extends HTMLElement {
                   ${imageDots}
               </header>
               <main class="tasks-block__tasks-container"></main>
-              <footer class="tasks-block__footer">
-                  <button class="tasks-block__add-task-button"><span class="add-card">+</span> Add card</button>
-              </footer>
+              ${button}
           </div>
           <div class="tasks-block" data-tasks-block="finished">
               <header class="tasks-block__header">
@@ -47,9 +42,7 @@ class TaskBlocks extends HTMLElement {
                   ${imageDots}
               </header>
               <main class="tasks-block__tasks-container"></main>
-              <footer class="tasks-block__footer">
-                  <button class="tasks-block__add-task-button"><span class="add-card">+</span> Add card</button>
-              </footer>
+              ${button}
           </div>
     </div>
     </div>

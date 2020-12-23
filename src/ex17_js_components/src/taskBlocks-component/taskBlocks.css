@@ -29,6 +29,7 @@
     text-align: left;
     padding: 8px;
     font-weight: normal;
+    text-transform: capitalize;
   }
 
   .task {
@@ -52,6 +53,16 @@
     margin-bottom: 0px;
   }
 
+  .input-for-name {
+    font-family: "Roboto";
+    font-size: 18px;
+    padding: 4px;
+    background: #EBECF0;
+    background-attachment: fixed;
+    border-radius: 5px;
+    margin-bottom: 8px;
+  }
+
   .tasks-block__add-task-button {
     border: none;
     font-family: "Roboto";
@@ -67,6 +78,11 @@
 
   .points {
     margin-bottom: 5px;
+    border: none;
+    width: 45px;
+    height: 30px;
+    background: #EBECF0;
+    font-size: 25px;
   }
 
   .tasks-block__header {
@@ -104,6 +120,7 @@
     text-align: center;
     color: white;
     border-top: 1px solid white;
+    text-transform: capitalize;
   }
 
   .dropdown-items:hover {
@@ -124,4 +141,39 @@
     overflow-y: auto;
     max-height: 65vh;
   }
-  
+
+  .menu-delete {
+    background: #0067A3;
+    width: auto;
+    height: auto;
+    position: absolute;
+    padding: 5px;
+    right: -20px;
+    top: 40px;
+    border-radius: 10px;
+    z-index: 1;
+  }
+
+  .string-delete {
+    padding: 10px;
+    font-family: "Roboto";
+    font-size: 15px;
+    color: white;
+    text-align: center;
+    list-style-type: none;
+  }
+
+  .string-delete:hover {
+    background: rgb(180, 199, 211);
+    cursor: pointer;
+  }
+
+  h2 {
+    font: 40px 'Roboto';
+    color: white;
+    line-height: 1.5em;
+  }
+
+  .tasks-block__title {
+    text-transform: capitalize;
+  }
