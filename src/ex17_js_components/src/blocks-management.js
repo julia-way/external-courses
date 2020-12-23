@@ -1,7 +1,7 @@
 import './taskBlocks-component/taskBlocks.js';
 import './footer-component/footer.js';
 import './tasks-management.js';
-import { countTasks, createTask, showTasks, eventForFirstButton, eventForOtherButtons, idCount } from './tasks-management.js';
+import { countTasks, createTask, showTasks, eventForFirstButton, eventForOtherButtons, idCount, pushButtons } from './tasks-management.js';
 import { initialData } from './mock.js';
 const linkCreate = document.querySelector('.rectangle');
 const board = document.querySelector('.board');
@@ -70,13 +70,9 @@ const createNewBlock = () => {
             });
             taskBlocksOrder.shift(titleOfDeletedBlockCamelCase);
             delete initialData[titleOfDeletedBlockCamelCase];
-            taskBlocksOrder.forEach((value, i) => {
-                if (i === 0) {
-                    addButtons[value].removeEventListener('click', eventForOtherButtons(value));
-                    addButtons[value].addEventListener('click', eventForFirstButton);
-                    addButtons[value].disabled = false;
-                } 
-            });
+            addButtons[taskBlocksOrder[0]].removeEventListener('click', eventForOtherButtons(taskBlocksOrder[0]));
+            addButtons[taskBlocksOrder[0]].addEventListener('click', eventForFirstButton);
+            addButtons[taskBlocksOrder[0]].disabled = false;
             idCount = amountOfTasksTotal - amountOfTasksInDeletedBlock;
             localStorage.setItem('tasks', JSON.stringify(initialData));
             localStorage.setItem('id-count', `${idCount}`);
@@ -111,6 +107,7 @@ const createNewBlock = () => {
 
         localStorage.setItem('tasks', JSON.stringify(initialData));
         showTasks();
+        pushButtons();
 
         taskBlocksOrder.forEach((value, i) => {
             if (i === 0) {
@@ -183,13 +180,9 @@ linkDots.forEach(item => {
             });
             taskBlocksOrder.shift(titleOfDeletedBlockCamelCase);
             delete initialData[titleOfDeletedBlockCamelCase];
-            taskBlocksOrder.forEach((value, i) => {
-                if (i === 0) {
-                    addButtons[value].removeEventListener('click', eventForOtherButtons(value));
-                    addButtons[value].addEventListener('click', eventForFirstButton);
-                    addButtons[value].disabled = false;
-                } 
-            });
+            addButtons[taskBlocksOrder[0]].removeEventListener('click', eventForOtherButtons(taskBlocksOrder[0]));
+            addButtons[taskBlocksOrder[0]].addEventListener('click', eventForFirstButton);
+            addButtons[taskBlocksOrder[0]].disabled = false;
             idCount = amountOfTasksTotal - amountOfTasksInDeletedBlock;
             localStorage.setItem('tasks', JSON.stringify(initialData));
             localStorage.setItem('id-count', `${idCount}`);

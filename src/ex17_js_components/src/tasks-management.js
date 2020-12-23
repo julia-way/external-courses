@@ -29,7 +29,7 @@ export const showTasks = () => {
     });
 };
 
-const pushButtons = () => {
+export const pushButtons = () => {
     taskBlocksOrder.forEach((key, i) => {
         const nextKey = taskBlocksOrder[i + 1];
         const isNotEmptyPrevBlock = tasks[key].length;
